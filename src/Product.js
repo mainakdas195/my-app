@@ -12,7 +12,7 @@ function Product() {
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch("http://localhost:8085/addProduct", {      //http://order-svc:8085/addProduct
+      let res = await fetch("http://localhost:8085/addProduct", {      // http://order-svc:8085/addProduct
         method: "POST",
         headers: {
           'Accept': 'application/json',
@@ -25,13 +25,25 @@ function Product() {
             inventory: inventory
         }),
       });
+      
       let resJson = await res.json();
+      
       if (res.status === 200) {
         setProductName("");
         setProductPrice("");
         setCompany("");
         setInventory("");
-        setMessage("Product created successfully");
+        setMessage("Product created successfully with productId = " + resJson.productId +
+                    ", productName = " + resJson.productName + 
+                    ", productPrice = " + resJson.productPrice +
+                    ", Company = " + resJson.company +
+                    ", Inventory = " + resJson.inventory);
+        console.log(resJson);       
+        console.log(resJson.productId);
+        console.log(resJson.productName);
+        console.log(resJson.productPrice);
+        console.log(resJson.company);
+        console.log(resJson.inventory); 
       } else {
         setMessage("Some error occured");
       }
