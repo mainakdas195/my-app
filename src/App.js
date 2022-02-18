@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import HeaderList from './HeaderList';
+import SlickDemo from './SlickDemo';
+import SlideShow from "./SlideShow";
+import Footer from './Footer';
+
+import './Styles.css';
+import Header from './Header';
+
+import Product from './Product';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+       <Product/>
+    </div>  
   );
 }
 
